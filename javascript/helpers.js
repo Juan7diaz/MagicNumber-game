@@ -15,7 +15,7 @@ export const validateNumber = (number) => {
   }
 
   if (number < 1 || number > 100) {
-    showMsg("Debes ingresar un número entre 1 y 100", "error");
+    showMsg("Unicamente numeros del 1 al 100", "error");
     return false;
   }
 
@@ -52,7 +52,7 @@ export const showHearts = (amount_hearts, init_hearts) => {
   }
 
   for (let i = 0; i < lostHearts; i++) {
-    html += "💔";
+    html += "☠️";
   }
 
   heartsRef.innerHTML = `<p class='myHearts'>${html}</p>`;
