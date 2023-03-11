@@ -1,3 +1,4 @@
+import { getStorage, setStorage } from "./interactionsDB.js";
 import {
   validateNumber,
   isCorrectPlayerNumber,
@@ -19,8 +20,8 @@ class Game {
     this.attemptsPrevious = [];
 
     //iniciar juego
-    this.eventEnter();
     showHearts(this.activeHearts, this.totalHearts);
+    this.eventEnter();
   }
 
   //eventos
@@ -58,6 +59,24 @@ class Game {
     showHearts(this.activeHearts, this.totalHearts);
   }
 
+  //guardar datos
+  saveData(state) {
+    let current_data = {
+      date: new Date(),
+      state: state,
+      attempts: this.attemptsPrevious,
+      hearts_activa: this.activeHearts,
+      total_hearts: this.totalHearts,
+      ramdon_number: this.ramdon_number,
+    };
+
+    // obtiene los datos anteriores y le adicciona el nuevo
+    let data = getStorage("dataGame") || "[]";
+    data = JSON.parse(data);
+    data.unshift(current_data);
+    setStorage("dataGame", JSON.stringify(data));
+  }
+
   // funcion principal
   main(playerNumber) {
     // validar numero ingredado sea permitido
@@ -71,12 +90,13 @@ class Game {
     if (!this.isCorrectNumber(playerNumber)) {
       this.decreaseHearts();
       if (this.activeHearts === 0) {
-        console.log("perdiste");
+        this.saveData("Failed");
       }
       return;
     }
 
     console.log("ganaste");
+    this.saveData("Win");
     //ya es correcto
     //guardar puntaje
     //cambiar pantalla
