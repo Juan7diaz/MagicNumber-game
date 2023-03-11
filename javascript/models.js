@@ -1,13 +1,29 @@
-import { validateNumber, isCorrectPlayerNumber, showMsg } from "./helpers.js";
+import {
+  validateNumber,
+  isCorrectPlayerNumber,
+  showHearts,
+} from "./helpers.js";
 
 class Game {
   constructor() {
-    this.amount_hearts = 5;
+    //cantidad de vidas
+    this.activeHearts = 5;
+    this.totalHearts = 5;
+
+    //numero aleatorio
     this.ramdon_number = this.generateRandomNumber();
-    this.eventEnter();
     console.log(this.ramdon_number);
+
+    //numeros ya ingresados
+    this.attemptsPrevious = [];
+    this.attempts = 0;
+
+    //iniciar juego
+    this.eventEnter();
+    showHearts(this.activeHearts, this.totalHearts);
   }
 
+  //eventos
   eventEnter() {
     const inputPalabra = document.getElementById("input");
     inputPalabra.addEventListener("keydown", (event) => {
@@ -18,10 +34,12 @@ class Game {
     });
   }
 
+  //generar numero aleatorio entre 1 y 100
   generateRandomNumber() {
     return Math.floor(Math.random() * 100) + 1;
   }
 
+  // obtener numero ingresado por el usuario
   getPlayerNumber() {
     const inputPalabra = document.getElementById("input");
     const number = inputPalabra.value;
@@ -29,20 +47,35 @@ class Game {
     return parseInt(number);
   }
 
+  // validar numero ingresado por el usuario es el correcto
   isCorrectNumber(number) {
-    if (!isCorrectPlayerNumber(number, this.ramdon_number)) {
-      console.log("disminuir vidaaaa");
-      return false;
-    }
-
-    console.log("ganaste, cambia de pantallaaaa");
-    return true;
+    return isCorrectPlayerNumber(number, this.ramdon_number);
   }
 
+  // disminuir corazones
+  decreaseHearts() {
+    this.activeHearts--;
+    showHearts(this.activeHearts, this.totalHearts);
+  }
+
+  // funcion principal
   main(playerNumber) {
+    // validar numero ingredado sea permitido
     if (!validateNumber(playerNumber)) return;
 
-    this.isCorrectNumber(playerNumber);
+    // muestra ayuda al usuario y disminuye vidas
+    if (!this.isCorrectNumber(playerNumber)) {
+      this.decreaseHearts();
+      if (this.activeHearts === 0) {
+        console.log("perdiste");
+      }
+      return;
+    }
+
+    console.log("ganaste");
+    //ya es correcto
+    //guardar puntaje
+    //cambiar pantalla
   }
 }
 

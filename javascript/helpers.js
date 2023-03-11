@@ -39,3 +39,21 @@ export const isCorrectPlayerNumber = (number, ramdon_number) => {
     return true;
   }
 };
+
+export const showHearts = (amount_hearts, init_hearts) => {
+  const heartsRef = document.getElementById("hearts");
+
+  let html = "";
+  const activeHearts = amount_hearts;
+  const lostHearts = init_hearts - amount_hearts;
+
+  for (let i = 0; i < activeHearts; i++) {
+    html += "❤️";
+  }
+
+  for (let i = 0; i < lostHearts; i++) {
+    html += "💔";
+  }
+
+  heartsRef.innerHTML = `<p class='myHearts'>${html}</p>`;
+};
