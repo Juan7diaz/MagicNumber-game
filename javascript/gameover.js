@@ -33,7 +33,16 @@ currentResult.innerHTML = `
     <strong>Numero correcto:</strong> ${ARRAY_DATA_PLAYAR[0].ramdon_number}
   </li>
   <li class="result__state">
-    <strong>Intentos:</strong> ${ARRAY_DATA_PLAYAR[0].total_hearts}
+    <strong>${
+      ARRAY_DATA_PLAYAR[0].state === "Win"
+        ? "Intento ganador:"
+        : "Cantidad vida"
+    }</strong>
+    ${
+      ARRAY_DATA_PLAYAR[0].state === "Win"
+        ? ARRAY_DATA_PLAYAR[0].attempts.length
+        : ARRAY_DATA_PLAYAR[0].total_hearts
+    }
   </li>
   <li class="result__attempts">
     <strong>intentos anteriores:</strong> ${ARRAY_DATA_PLAYAR[0].attempts}
@@ -55,8 +64,19 @@ if (ARRAY_DATA_PLAYAR.length > 1) {
     <li class="result__magic_number">
       <strong>Numero magico:</strong> ${ARRAY_DATA_PLAYAR[i].ramdon_number}
     </li>
-    <li class="result__number_of_attempts">
-      <strong>Intento ganador:</strong> ${ARRAY_DATA_PLAYAR[i].attempts.length}
+    <li class="result">
+      <strong>
+        ${
+          ARRAY_DATA_PLAYAR[i].state === "Win"
+            ? "Intento ganador:"
+            : "Cantidad vida"
+        }
+      </strong>
+      ${
+        ARRAY_DATA_PLAYAR[i].state === "Win"
+          ? ARRAY_DATA_PLAYAR[i].attempts.length
+          : ARRAY_DATA_PLAYAR[i].total_hearts
+      }
     </li>
     <li class="result__attempts">
       <strong>intentos:</strong> ${ARRAY_DATA_PLAYAR[i].attempts}
