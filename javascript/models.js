@@ -63,7 +63,12 @@ class Game {
   //guardar datos
   saveData(state) {
     let current_data = {
-      date: new Date(),
+      date: new Date().toLocaleDateString("en-us", {
+        weekday: "long",
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      }),
       state: state,
       attempts: this.attemptsPrevious,
       hearts_activa: this.activeHearts,
