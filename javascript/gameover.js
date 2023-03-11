@@ -26,7 +26,6 @@ buttonBack.addEventListener("click", () => {
 
 const currentResult = document.getElementById("current_result");
 currentResult.innerHTML = `
-<h3 class="result__title">Ganaste!</h3>
 <ul class="result">
   <li class="result__date">Fecha: ${ARRAY_DATA_PLAYAR[0].date}</li>
   <li class="result__ramdon_number">Numero correcto: ${ARRAY_DATA_PLAYAR[0].ramdon_number}</li>
