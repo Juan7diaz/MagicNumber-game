@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Rampart+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
+
+/* ========================================= */
+/* PANTALLA GLOBAL                           */
+/* ========================================= */
+
+:root {
+  --font-title: "Rampart One", monospace, sans-serif;
+  --font-text: "Raleway", monospace, sans-serif;
+  --background-color-body: #227093;
+  --background-color-app: #ffffff;
+  --color-aux: #ffb142;
+  --color-title: #2c2c54;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--background-color-body);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container_App {
+  margin: 3rem 0;
+  padding: 3rem;
+  border-radius: 10px;
+  background-color: var(--background-color-app);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  font-family: var(--font-title);
+  font-size: 4rem;
+  color: var(--color-title);
+  margin: 0;
+}
+
+p {
+  font-family: var(--font-text);
+  color: black;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+/* ========================================= */
+/* PANTALLA PRINCIPAL                        */
+/* ========================================= */
+
+.myHearts {
+  font-size: 3rem;
+}
+
+#input {
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  outline: 2px solid var(--color-title);
+  border: 0;
+  outline-offset: 3px;
+  padding: 10px 1rem;
+  transition: 0.25s;
+  height: 4rem;
+  width: 20rem;
+  font-size: 2rem;
+}
+
+#input:focus {
+  outline-offset: 5px;
+  outline: 2px solid var(--color-aux);
+}
+
+@media (max-width: 680px) {
+  .myHearts {
+    font-size: 2rem;
+  }
+  #input {
+    font-size: 1rem;
+    width: 15rem;
+    height: 2rem;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 470px) {
+  .myHearts {
+    font-size: 1rem;
+  }
+  #input {
+    font-size: 0.8rem;
+    width: 10rem;
+    height: 1rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ========================================= */
+/* PANTALLA FINAL                            */
+/* ========================================= */
+
+h2 {
+  font-family: var(--font-title);
+  font-size: 3rem;
+  color: var(--color-title);
+  margin: 0;
+}
+
+strong {
+  color: var(--background-color-body);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-text);
+  font-size: 1.3rem;
+}
+
+#current_result {
+  padding: 2rem 0;
+}
+
+hr {
+  margin: 1.5rem 0;
+  border: 1px solid var(--color-title);
+  width: 80%;
+}
+
+.result {
+  margin: 0;
+  padding: 0;
+}
+
+#back {
+  color: #fff;
+  border: 1px solid var(--color-title);
+  border-radius: 4px;
+  padding: 0.8em 2em;
+  background: var(--color-title);
+  transition: 0.2s;
+  width: 80%;
+}
+
+#back:hover {
+  transform: translate(-0.25rem, -0.25rem);
+  background: var(--background-color-body);
+  box-shadow: 0.25rem 0.25rem var(--color-title);
+  cursor: pointer;
+}
