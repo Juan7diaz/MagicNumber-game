@@ -62,3 +62,8 @@ export const showPreviousAttempts = (arr) => {
   const attemptsRef = document.getElementById("attempts");
   attemptsRef.innerHTML = `<p class='myAttempts'>${JSON.stringify(arr)}</p>`;
 };
+
+export const changeScreen = (file) => {
+  const URLactual = window.location.href;
+  location.href = URLactual + file;
+};

@@ -1,16 +1,17 @@
 import { getStorage, setStorage } from "./interactionsDB.js";
 import {
-  validateNumber,
+  changeScreen,
   isCorrectPlayerNumber,
   showHearts,
   showPreviousAttempts,
+  validateNumber,
 } from "./helpers.js";
 
 class Game {
   constructor() {
     //cantidad de vidas
-    this.activeHearts = 5;
-    this.totalHearts = 5;
+    this.activeHearts = 10;
+    this.totalHearts = 10;
 
     //numero aleatorio
     this.ramdon_number = this.generateRandomNumber();
@@ -91,15 +92,13 @@ class Game {
       this.decreaseHearts();
       if (this.activeHearts === 0) {
         this.saveData("Failed");
+        changeScreen("gameover.html");
       }
       return;
     }
 
-    console.log("ganaste");
     this.saveData("Win");
-    //ya es correcto
-    //guardar puntaje
-    //cambiar pantalla
+    changeScreen("gameover.html");
   }
 }
 
