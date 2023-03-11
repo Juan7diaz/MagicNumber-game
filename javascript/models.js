@@ -2,6 +2,7 @@ import {
   validateNumber,
   isCorrectPlayerNumber,
   showHearts,
+  showPreviousAttempts,
 } from "./helpers.js";
 
 class Game {
@@ -16,7 +17,6 @@ class Game {
 
     //numeros ya ingresados
     this.attemptsPrevious = [];
-    this.attempts = 0;
 
     //iniciar juego
     this.eventEnter();
@@ -62,6 +62,10 @@ class Game {
   main(playerNumber) {
     // validar numero ingredado sea permitido
     if (!validateNumber(playerNumber)) return;
+
+    // ingresar numero en array de intentos
+    this.attemptsPrevious.push(playerNumber);
+    showPreviousAttempts(this.attemptsPrevious);
 
     // muestra ayuda al usuario y disminuye vidas
     if (!this.isCorrectNumber(playerNumber)) {

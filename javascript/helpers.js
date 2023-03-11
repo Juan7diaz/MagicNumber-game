@@ -57,3 +57,8 @@ export const showHearts = (amount_hearts, init_hearts) => {
 
   heartsRef.innerHTML = `<p class='myHearts'>${html}</p>`;
 };
+
+export const showPreviousAttempts = (arr) => {
+  const attemptsRef = document.getElementById("attempts");
+  attemptsRef.innerHTML = `<p class='myAttempts'>${JSON.stringify(arr)}</p>`;
+};
