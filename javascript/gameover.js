@@ -1,4 +1,5 @@
 import { getStorage } from "./interactionsDB.js";
+import { changeScreen } from "./helpers.js";
 
 const ARRAY_DATA_PLAYAR = JSON.parse(getStorage("dataGame"));
 
@@ -14,13 +15,7 @@ if (ARRAY_DATA_PLAYAR[0].state === "Win") {
 
 const buttonBack = document.getElementById("back");
 buttonBack.addEventListener("click", () => {
-  const URLactual = window.location.href;
-  console.log(URLactual);
-  if (URLactual.includes("github")) {
-    window.location.href = "https://juan7diaz.github.io/MagicNumber-game/";
-  } else {
-    window.location.href = "/";
-  }
+  changeScreen("/");
 });
 
 const currentResult = document.getElementById("current_result");
