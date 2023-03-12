@@ -1,4 +1,4 @@
-##Numero Magico
+## Numero Magico
 
 ![Mockup de la app](./imgs/img.png)
 
@@ -8,13 +8,11 @@
 
 or
 
-`git clone https://github.com/Juan7diaz/MagicNumber-game.git
-`
+`git clone https://github.com/Juan7diaz/MagicNumber-game.git`
 
-##Instalación
+## Instalación
 
-**Nota:** Como se implementó modulos (`import/export`) si deseas descargar la app y ejecutarla localmente, deberás ejecutarlos a través de un servidor web local. (*puedes utilizar Live Server*)
-
+**Nota:** Como se implementó modulos (`import/export`) si deseas descargar la app y ejecutarla localmente, deberás ejecutarlos a través de un servidor web local. (_puedes utilizar Live Server_)
 
 1. Live Server - Extensión de VSCODE
 
