@@ -64,6 +64,15 @@ export const showPreviousAttempts = (arr) => {
 };
 
 export const changeScreen = (file) => {
-  const URLactual = window.location.href;
+  let URLactual = window.location.href;
+
+  if (URLactual.includes("index.html")) {
+    URLactual = URLactual.replace("index.html", "");
+  }
+
+  if (URLactual.includes("gameover.html")) {
+    URLactual = URLactual.replace("/gameover.html", "");
+  }
+
   location.href = URLactual + file;
 };
